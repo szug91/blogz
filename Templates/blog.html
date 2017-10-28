@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <hr/>
+        
+        {% if not blogset %}
+        <p>No blogs yet</p>
+        {% else %}
+            {% for blog in blogset %}
+                <div>
+                    <a href="/blogpost?id={{blog.id}}"><h3>{{blog.title}}</h3></a>
+                    <br>{{blog.body}}
+                    <br>
+                    <h6><i>This post was written by <a href="/UserBlog?name={{blog.owner.id}}">{{blog.owner.name}}</a></i></h6>
+                </div>
+                <hr/>
+                {% endfor %}
+
+        {% endif %}
+
+{% endblock %}

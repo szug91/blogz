@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}       
+<body>
+    <h1>Sign up for the coolest blogopshere in town</h1>
+    <form action="/signup" method="post">
+        <table>
+            <tr>
+                <td><label for="name">User Name</label></td>
+                <td><input name="name" type="text" value="{{name}}"/></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input name="password" type="password" value="{{password}}"/></td>
+            </tr>
+            <tr>
+                <td><label for="verify">Varify Password</label></td>
+                <td><input name="verify" type="password" value="{{verify}}"/></td>
+            </tr>
+        </table>
+        <input type="submit" value="Sign Up!"/>
+    </form>
+{% endblock %}

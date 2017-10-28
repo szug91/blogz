@@ -1,0 +1,44 @@
+<html>
+        <head>
+            <title>{{head}}</title>
+            <style>
+                .error {color: red;}
+            </style>
+        </head>
+        <body>
+            {% if not session.name%}
+            <div>
+                <a href="./login">log in</a>
+            </div>
+            <div>
+                <a href="./signup">sign up</a>
+            </div>
+            {% else %}
+            <p>Welcome, {{session.name}}</p>
+            <div>
+                    <a href="./">home</a>
+                </div>
+            <div>
+                    <a href="./logout">log out</a>
+                </div>
+            <div>
+                <a href="./newpost">new post</a>
+            </div>
+            <div>
+                <a href="./allposts">all posts</a>
+            </div>
+            {% endif %}
+            
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                <ul>
+                    {% for category,message in messages %}
+                    <li class="{{category}}">{{message}}</li>
+                    {% endfor %}
+                </ul>
+            {% endwith %}
+                        
+            {% block content %}
+            {% endblock %}
+    
+        </body>
+    </html>
